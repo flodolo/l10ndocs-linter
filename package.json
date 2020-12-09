@@ -5,7 +5,7 @@
   "main": "linter/markdownlint.js",
   "dependencies": {
     "glob": "^7.1.6",
-    "markdownlint": "^0.19.0",
+    "markdownlint": "^0.22.0",
     "minimist": "^1.2.5"
   },
   "devDependencies": {},
