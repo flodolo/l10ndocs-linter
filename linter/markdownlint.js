@@ -27,7 +27,8 @@ const filelist = glob.sync(
     {
         'ignore': [
             '**/node_modules/**',
-        ]
+        ],
+        'nodir': true
     });
 
 // Run linter
