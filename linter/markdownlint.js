@@ -1,12 +1,13 @@
-const fs = require('fs');
-const glob = require('glob');
-const markdownlint = require('markdownlint');
-const path = require('path');
+import fs from 'fs';
+import * as glob from 'glob';
+import { lint as lintSync } from "markdownlint/sync";
+import path from 'path';
+import minimist from 'minimist';
 
 // Default paths and configs
-const argv = require('minimist')(process.argv.slice(2));
+const argv = minimist(process.argv.slice(2));
 
-const default_config = path.join(path.dirname(require.main.filename), 'markdownlint.json');
+const default_config = path.join(path.dirname(new URL(import.meta.url).pathname), 'markdownlint.json');
 var config_file = 'config' in argv
     ? path.resolve(argv['config'])
     : default_config;
@@ -34,9 +35,9 @@ const filelist = glob.sync(
 // Run linter
 const options = {
     'files': filelist,
-    'config': require(config_file)
+    'config': await import(config_file, { assert: { type: "json" } })
 };
-const results = markdownlint.sync(options);
+const results = lintSync(options);
 console.log(results.toString(true));
 
 if (results.toString(true)) {
