@@ -1,6 +1,6 @@
 import fs from 'fs';
 import * as glob from 'glob';
-import { lint as lintSync } from "markdownlint/sync";
+import { lint as lintSync, readConfig } from "markdownlint/sync";
 import path from 'path';
 import minimist from 'minimist';
 
@@ -27,7 +27,7 @@ const filelist = glob.sync(
     path.join(search_path, '**/*.md'),
     {
         'ignore': [
-            '**/node_modules/**',
+            path.resolve(search_path, '**/node_modules/**'),
         ],
         'nodir': true
     });
@@ -35,7 +35,7 @@ const filelist = glob.sync(
 // Run linter
 const options = {
     'files': filelist,
-    'config': await import(config_file, { assert: { type: "json" } })
+    'config': readConfig(config_file)
 };
 const results = lintSync(options);
 console.log(results.toString(true));
