@@ -1,26 +1,25 @@
 {
   "default": false,
-  "header-increment": {},
-  "first-header-h1": {},
-  "header-style": {
-      "style": "atx"
+  "blanks-around-headings": true,
+  "first-line-heading": true,
+  "heading-increment": true,
+  "heading-start-left": true,
+  "heading-style": {
+    "style": "atx"
   },
+  "single-title": true,
+  "blanks-around-fences": true,
+  "list-indent": true,
+  "list-marker-space": true,
   "ul-style": {
-      "style": "asterisk"
+    "style": "asterisk"
   },
-  "list-indent": {},
-  "no-trailing-spaces": {},
-  "no-multiple-blanks": {},
-  "no-missing-space-atx": {},
-  "no-multiple-space-atx": {},
-  "blanks-around-headers": {},
-  "header-start-left": {},
-  "single-h1": {},
-  "list-marker-space": {},
-  "blanks-around-fences": {},
-  "no-space-in-emphasis": {},
-  "no-space-in-code": {},
-  "no-space-in-links": {},
-  "first-line-h1": {},
-  "line-length": false
+  "no-missing-space-atx": true,
+  "no-multiple-blanks": true,
+  "no-multiple-space-atx": true,
+  "no-space-in-code": true,
+  "no-space-in-emphasis": true,
+  "no-space-in-links": true,
+  "no-trailing-spaces": true,
+  "single-trailing-newline": true
 }

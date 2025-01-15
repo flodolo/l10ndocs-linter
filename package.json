@@ -1,6 +1,6 @@
 {
   "name": "mozilla-l10n-docs-linter",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Mozilla l10n Documentation Linter",
   "main": "linter/markdownlint.js",
   "type": "module",
