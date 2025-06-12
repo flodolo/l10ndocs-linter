@@ -1,12 +1,12 @@
 {
   "name": "mozilla-l10n-docs-linter",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Mozilla l10n Documentation Linter",
   "main": "linter/markdownlint.js",
   "type": "module",
   "dependencies": {
     "glob": "^11.0.0",
-    "markdownlint": "^0.37.3",
+    "markdownlint": "^0.38",
     "minimist": "^1.2.8"
   },
   "devDependencies": {},
