@@ -9,19 +9,19 @@ import minimist from 'minimist';
 const argv = minimist(process.argv.slice(2));
 
 const default_config = path.join(path.dirname(new URL(import.meta.url).pathname), 'markdownlint.json');
-var config_file = 'config' in argv
+let config_file = 'config' in argv
     ? path.resolve(argv['config'])
     : default_config;
 if (!fs.existsSync(config_file)) {
     console.log('Config file doesn\'t exist. Falling back to default.');
     config_file = default_config;
 }
-console.log('Using config file: ' + config_file);
+console.log(`Using config file: ${config_file}`);
 
 const search_path = 'path' in argv
     ? path.resolve(argv['path'])
     : process.cwd();
-console.log('Searching path: ' + search_path)
+console.log(`Searching path: ${search_path}`);
 
 // Get all .md files
 const filelist = glob.sync(
@@ -39,9 +39,10 @@ const options = {
     'config': readConfig(config_file)
 };
 const results = lintSync(options);
-console.log(results.toString(true));
+const output = results.toString(true);
 
-if (results.toString(true)) {
+if (output) {
+    console.log(output);
     process.exit(1);
 } else {
     console.log('There are no linter errors.');
