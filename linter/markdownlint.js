@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import fs from 'fs';
 import * as glob from 'glob';
 import { lint as lintSync, readConfig } from "markdownlint/sync";
